@@ -7,10 +7,10 @@
     description: Select the version of Mesos to run.
     required: true
     type: enum
-    default: 0.24.1-centos-7
+    default: 0.28-centos-7
     options:
-    - 0.24.1-centos-7
-    - 0.24.1-ubuntu-14.04
+    - 0.28-centos-7
+    - 0.28-ubuntu-14.04
   - variable: ZK_SERVICE
     description: Choose the Zookeeper service to use.
     label: Zookeeper Service

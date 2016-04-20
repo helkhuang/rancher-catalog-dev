@@ -1,5 +1,5 @@
 master:
-  image: llparse/mesos-master:${VERSION}
+  image: helk/mesos-master:${VERSION}
   environment:
     MESOS_CLUSTER: ${MESOS_CLUSTER}
     MESOS_QUORUM: ${MESOS_QUORUM}
