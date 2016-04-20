@@ -27,6 +27,11 @@
     required: true
     type: string
     default: 10secs
+  - variable: LOG_PATH
+    description: MESOS LOG_PATH.
+    label: MESOS_LOG_PATH
+    type: string
+    default: /var/log/
   - variable: MESOS_CLUSTER
     description: Mesos cluster name to appear in the Master UI.
     label: Cluster Name
