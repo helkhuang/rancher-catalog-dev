@@ -2,10 +2,10 @@ mariadb:
   image: mariadb:10
   restart: always
   environment:
+    MYSQL_PORT: ${MYSQL_PORT}
     MYSQL_USER: ${MYSQL_USER}
     MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     MYSQL_DATABASE: ${MYSQL_DATABASE}
-	MYSQL_PORT: ${MYSQL_PORT}
     MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
   ports:
   - "${MYSQL_PORT}:${MYSQL_PORT}"
