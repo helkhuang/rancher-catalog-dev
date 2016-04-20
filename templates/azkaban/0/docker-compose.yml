@@ -1,0 +1,31 @@
+mariadb:
+  image: mariadb:10
+  restart: always
+  environment:
+    MYSQL_USER: ${MYSQL_USER}
+    MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    MYSQL_DATABASE: ${MYSQL_DATABASE}
+    MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+  ports:
+  - "3306:3306"
+  labels:
+    azkaban: db
+  volumes:
+  - /var/lib/mysql
+executor:
+  image: puckel/azkaban-executor
+  restart: always
+  labels:
+    azkaban: executor
+  links:
+  - mariadb
+webserver:
+  image: puckel/azkaban-webserver
+  restart: always
+  ports:
+  - "${WEBSERVER_PORT}:${WEBSERVER_PORT}"
+  labels:
+    azkaban: webserver
+  links:
+  - executor:azkaban-executor
+  - mariadb
