@@ -9,10 +9,10 @@
     description: Select the version of Chronos to run.
     required: true
     type: enum
-    default: 2.4.0.1-ubuntu-14.04
+    default: 2.4.0.2-ubuntu-14.04
     options:
     - 2.4.0-centos-7
-    - 2.4.0.1-ubuntu-14.04
+    - 2.4.0.2-ubuntu-14.04
   - variable: ZK_SERVICE
     description: Choose the Zookeeper service to use.
     label: Zookeeper Service
