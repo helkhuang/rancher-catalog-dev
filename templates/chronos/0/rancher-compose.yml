@@ -9,7 +9,7 @@
     description: Select the version of Chronos to run.
     required: true
     type: enum
-    default: 2.4.0-centos-7
+    default: 2.4.0-ubuntu-14.04
     options:
     - 2.4.0-centos-7
     - 2.4.0-ubuntu-14.04
