@@ -27,7 +27,6 @@
     label: MYSQL_PORT
     required: true
     type: int
-	default: 3306
   - variable: WEBSERVER_PORT
     description: WEBSERVER_PORT
     label: WEBSERVER_PORT
