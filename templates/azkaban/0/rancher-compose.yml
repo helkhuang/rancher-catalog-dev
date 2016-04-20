@@ -22,6 +22,12 @@
     label: ROOT密码
     required: true
     type: string
+  - variable: MYSQL_PORT
+    description: 数据库端口
+    label: MYSQL_PORT
+    required: true
+    type: int
+	default: 3306
   - variable: WEBSERVER_PORT
     description: WEBSERVER_PORT
     label: WEBSERVER_PORT
@@ -30,7 +36,7 @@
     default: 8443
 mariadb:
   health_check:
-    port: 3306
+    port: ${MYSQL_PORT}
     interval: 3000
     unhealthy_threshold: 2
     healthy_threshold: 2
