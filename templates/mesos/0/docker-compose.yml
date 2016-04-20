@@ -16,7 +16,7 @@ master:
   volumes:
   - /data
 slave:
-  image: llparse/mesos-slave:${VERSION}
+  image: helk/mesos-slave:${VERSION}
   environment:
     SLAVE_PORT: ${SLAVE_PORT}
     ZK_SERVICE: ${ZK_SERVICE}
