@@ -1,5 +1,5 @@
-mariadb:
-  image: mariadb:10
+mysql:
+  image: mysql:latest
   restart: always
   environment:
     MYSQL_PORT: ${MYSQL_PORT}
@@ -19,7 +19,7 @@ executor:
   labels:
     azkaban: executor
   links:
-  - mariadb
+  - mysql
 webserver:
   image: puckel/azkaban-webserver
   restart: always
@@ -29,4 +29,4 @@ webserver:
     azkaban: webserver
   links:
   - executor:azkaban-executor
-  - mariadb
+  - mysql
