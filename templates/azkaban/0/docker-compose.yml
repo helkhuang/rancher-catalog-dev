@@ -21,7 +21,7 @@ executor:
   links:
   - mysql
 webserver:
-  image: helk/azkaban-webserver:ubuntu14.04
+  image: helk/azkanban-webserver-1.1:ubuntu14.04
   restart: always
   ports:
   - "${WEBSERVER_PORT}:${WEBSERVER_PORT}"
