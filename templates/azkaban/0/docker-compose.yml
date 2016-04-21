@@ -2,13 +2,13 @@ mysql:
   image: mysql:latest
   restart: always
   environment:
-    MYSQL_PORT: ${MYSQL_PORT}
-    MYSQL_USER: ${MYSQL_USER}
-    MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    MYSQL_DATABASE: ${MYSQL_DATABASE}
-    MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    MYSQL_PORT: 3306
+    MYSQL_USER: azkaban
+    MYSQL_PASSWORD: azkaban
+    MYSQL_DATABASE: azkaban
+    MYSQL_ROOT_PASSWORD: azkaban123456
   ports:
-  - "${MYSQL_PORT}:${MYSQL_PORT}"
+  - "3306:3306"
   labels:
     azkaban: db
   volumes:
@@ -21,10 +21,10 @@ executor:
   links:
   - mysql
 webserver:
-  image: helk/azkaban-webserver:ubuntu14.04beta2
+  image: helk/azkaban-webserver:ubuntu14.04beta3
   restart: always
   ports:
-  - "${WEBSERVER_PORT}:${WEBSERVER_PORT}"
+  - "8443:8443"
   labels:
     azkaban: webserver
   links:
