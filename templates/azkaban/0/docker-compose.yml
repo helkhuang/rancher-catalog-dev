@@ -1,6 +1,12 @@
 mysql:
   image: mysql:latest
   restart: always
+  environment:
+    MYSQL_PORT: 3306
+    MYSQL_USER: "azkaban"
+    MYSQL_PASSWORD: "azkaban"
+    MYSQL_DATABASE: "azkaban"
+    MYSQL_ROOT_PASSWORD: "azkaban123456"
   ports:
   - "3306:3306"
   labels:
