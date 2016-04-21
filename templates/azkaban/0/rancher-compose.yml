@@ -33,7 +33,7 @@
     required: true
     type: int
     default: 8443
-mariadb:
+mysql:
   health_check:
     port: ${MYSQL_PORT}
     interval: 3000
