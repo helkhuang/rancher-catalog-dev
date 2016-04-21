@@ -5,12 +5,12 @@
   - variable: WEBSERVER_PORT
     description: WEBSERVER_PORT
     label: WEBSERVER_PORT
-    required: true
+    required: false
     type: int
     default: 8443
 mysql:
   health_check:
-    port: ${MYSQL_PORT}
+    port: 3306
     interval: 3000
     unhealthy_threshold: 2
     healthy_threshold: 2
@@ -26,7 +26,7 @@ executor:
     response_timeout: 3000
 webserver:
   health_check:
-    port: ${WEBSERVER_PORT}
+    port: 8443
     interval: 5000
     unhealthy_threshold: 2
     healthy_threshold: 2
