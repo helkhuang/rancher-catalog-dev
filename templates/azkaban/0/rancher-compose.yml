@@ -51,7 +51,7 @@ executor:
     response_timeout: 3000
 webserver:
   metadata:
-    mysql: |
+    mysql: 
       port:${MYSQL_PORT}
       user: ${MYSQL_USER}
       password: ${MYSQL_PASSWORD}
