@@ -25,6 +25,8 @@ webserver-config:
   image: helk/azkaban-webserver-conf
   labels:
     azkaban: webserver-config
+  links:
+  - mysql
 webserver:
   image: helk/azkaban-webserver
   restart: always
