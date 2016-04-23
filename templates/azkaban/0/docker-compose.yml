@@ -27,6 +27,7 @@ webserver-config:
     azkaban: webserver-config
   links:
   - mysql
+  net: "container:webserver"
 webserver:
   image: helk/azkaban-webserver
   restart: always
