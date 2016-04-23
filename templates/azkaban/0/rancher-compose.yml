@@ -52,7 +52,7 @@ executor:
 webserver:
   metadata:
     mysql: 
-      port:${MYSQL_PORT}
+      port: ${MYSQL_PORT}
       user: ${MYSQL_USER}
       password: ${MYSQL_PASSWORD}
       database: ${MYSQL_DATABASE}
