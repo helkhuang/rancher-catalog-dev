@@ -23,7 +23,7 @@ executor:
   - mysql
 webserver-config:
   restart: always
-  image: helk/azkaban-webserver-conf:v1
+  image: helk/azkaban-webserver-conf:v2
   labels:
     azkaban: webserver-config
   links:
