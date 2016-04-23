@@ -2,13 +2,13 @@ mysql:
   image: mysql:latest
   restart: always
   environment:
-    MYSQL_PORT: 3306
-    MYSQL_USER: "azkaban"
-    MYSQL_PASSWORD: "azkaban"
-    MYSQL_DATABASE: "azkaban"
-    MYSQL_ROOT_PASSWORD: "azkaban123456"
+    MYSQL_PORT: ${MYSQL_PORT}
+    MYSQL_USER: ${MYSQL_USER}
+    MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    MYSQL_DATABASE: ${MYSQL_DATABASE}
+    MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
   ports:
-  - "3306:3306"
+  - "${MYSQL_PORT}:${MYSQL_PORT}"
   labels:
     azkaban: db
   volumes:
@@ -20,12 +20,20 @@ executor:
     azkaban: executor
   links:
   - mysql
-webserver:
-  image: helk/azkaban-webserver:ubuntu14.04beta3
+webserver-config:
   restart: always
-  ports:
-  - "8443:8443"
+  image: helk/azkaban-webserver-conf
   labels:
+    azkaban: webserver-config
+webserver:
+  image: helk/azkaban-webserver
+  restart: always
+  volumes_from:
+  - webserver-config
+  ports:
+  - "${WEBSERVER_PORT}:${WEBSERVER_PORT}"
+  labels:
+    io.rancher.sidekicks: webserver-config
     azkaban: webserver
   links:
   - executor:azkaban-executor
