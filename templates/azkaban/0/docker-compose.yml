@@ -29,7 +29,7 @@ webserver-config:
   links:
   - mysql
 webserver:
-  image: helk/azkanban-webserverv5.0
+  image: helk/azkaban-webserverv6
   restart: always
   volumes_from:
   - webserver-config
