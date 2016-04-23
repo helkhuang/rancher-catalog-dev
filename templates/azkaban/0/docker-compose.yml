@@ -10,6 +10,7 @@ mysql:
   ports:
   - "${MYSQL_PORT}:${MYSQL_PORT}"
   labels:
+    io.rancher.container.hostname_override: container_name
     azkaban: db
   volumes:
   - /var/lib/mysql
@@ -22,12 +23,11 @@ executor:
   - mysql
 webserver-config:
   restart: always
-  image: helk/azkaban-webserver-conf
+  image: helk/azkaban-webserver-conf:v1
   labels:
     azkaban: webserver-config
   links:
   - mysql
-  net: "container:webserver"
 webserver:
   image: helk/azkaban-webserver
   restart: always
