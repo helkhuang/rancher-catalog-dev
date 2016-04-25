@@ -23,13 +23,13 @@ executor:
   - mysql
 webserver-config:
   restart: always
-  image: helk/azkaban-webserver-conf:beta9
+  image: helk/azkaban-webserver-conf:beta12
   labels:
     azkaban: webserver-config
   links:
   - mysql
 webserver:
-  image: helk/azkaban-webserver:beta9
+  image: helk/azkaban-webserver-beta4
   restart: always
   volumes_from:
   - webserver-config
