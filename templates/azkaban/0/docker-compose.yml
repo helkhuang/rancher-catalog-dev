@@ -37,16 +37,3 @@ webserver-initdb:
     azkaban: webserver-initdb
   links:
   - mysql
-webserver:
-  image: helk/azkaban-webserver:v0.1
-  restart: always
-  volumes_from:
-  - webserver-config
-  ports:
-  - "${WEBSERVER_PORT}:${WEBSERVER_PORT}"
-  labels:
-    io.rancher.sidekicks: webserver-config
-    azkaban: webserver
-  links:
-  - executor:azkaban-executor
-  - mysql
