@@ -28,6 +28,15 @@ webserver-config:
     azkaban: webserver-config
   links:
   - mysql
+webserver-initdb:
+  image: helk/azkaban-webserver-initdb:v0.1
+  volumes_from:
+  - webserver-config
+  labels:
+    io.rancher.sidekicks: webserver-config
+    azkaban: webserver-initdb
+  links:
+  - mysql
 webserver:
   image: helk/azkaban-webserver:v0.1
   restart: always
