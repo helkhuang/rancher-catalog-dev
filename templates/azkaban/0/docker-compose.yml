@@ -38,13 +38,19 @@ webserver-initdb:
     azkaban: webserver-initdb
   links:
   - mysql
+webserver-config-proxy:
+  restart: always
+  image: helk/azkaban-webserver-conf-proxy:v0.4
+  labels:
+    io.rancher.container.start_once: true
+    azkaban: webserver-config-proxy
 webserver:
   restart: always
   image: helk/azkaban-webserver:betav0.1
   volumes_from:
-  - webserver-config
+  - webserver-config-proxy
   labels:
-    io.rancher.sidekicks: webserver-config
+    io.rancher.sidekicks: webserver-config-proxy
     azkaban: webserver
   ports:
   - "${WEBSERVER_PORT}:${WEBSERVER_PORT}"
