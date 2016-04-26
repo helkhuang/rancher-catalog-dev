@@ -40,7 +40,7 @@ webserver-initdb:
   - mysql
 webserver-config-proxy:
   restart: always
-  image: helk/azkaban-webserver-conf-proxy:v0.4
+  image: helk/azkaban-webserver-conf-proxy:v1.0.9
   labels:
     io.rancher.container.start_once: true
     azkaban: webserver-config-proxy
