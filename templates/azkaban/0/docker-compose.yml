@@ -22,7 +22,7 @@ executor:
   links:
   - mysql
 webserver-config:
-  restart: no
+  restart: always
   image: helk/azkaban-webserver-conf:v0.4
   labels:
     io.rancher.container.start_once: true
