@@ -44,6 +44,7 @@ webserver:
   volumes_from:
   - webserver-config
   labels:
+    io.rancher.sidekicks: webserver-config
     azkaban: webserver
   ports:
   - "${WEBSERVER_PORT}:${WEBSERVER_PORT}"
