@@ -27,8 +27,6 @@ webserver-config:
   labels:
     io.rancher.container.start_once: true
     azkaban: webserver-config
-  links:
-  - mysql
 webserver-initdb:
   restart: no
   image: helk/azkaban-webserver-initdb:v0.1
@@ -40,3 +38,21 @@ webserver-initdb:
     azkaban: webserver-initdb
   links:
   - mysql
+ webserver:
+  restart: always
+  image: helk/azkaban-webserver:betav0.1
+  volumes_from:
+  - webserver-config
+  labels:
+    io.rancher.sidekicks: webserver-config
+    azkaban: webserver
+  links:
+  - mysql 
+  
+  
+  
+  
+  
+  
+  
+  

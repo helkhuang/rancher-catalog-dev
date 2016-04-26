@@ -56,3 +56,11 @@ webserver-initdb:
       user: ${MYSQL_USER}
       password: ${MYSQL_PASSWORD}
       database: ${MYSQL_DATABASE}
+webserver:
+  health_check:
+    port: ${WEBSERVER_PORT}
+    interval: 3000
+    unhealthy_threshold: 2
+    healthy_threshold: 2
+    request_line: '/metrics/snapshot'
+    response_timeout: 2000
