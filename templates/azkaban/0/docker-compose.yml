@@ -46,7 +46,7 @@ webserver-config-proxy:
     azkaban: webserver-config-proxy
 webserver:
   restart: always
-  image: helk/azkaban-webserver:betav0.5
+  image: helk/azkaban-webserver:betav1.1
   volumes_from:
   - webserver-config-proxy
   labels:
