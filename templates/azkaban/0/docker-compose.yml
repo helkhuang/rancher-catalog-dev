@@ -22,7 +22,7 @@ executor:
   links:
   - mysql
 webserver-config:
-  restart: always
+  restart: no
   image: helk/azkaban-webserver-conf:v0.4
   labels:
     io.rancher.container.start_once: true
@@ -44,7 +44,6 @@ webserver:
   volumes_from:
   - webserver-config
   labels:
-    io.rancher.sidekicks: webserver-config
     azkaban: webserver
   ports:
   - "${WEBSERVER_PORT}:${WEBSERVER_PORT}"
