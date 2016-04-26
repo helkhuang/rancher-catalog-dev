@@ -57,6 +57,12 @@ webserver-initdb:
       password: ${MYSQL_PASSWORD}
       database: ${MYSQL_DATABASE}
 webserver:
+  metadata:
+    mysql: 
+      port: ${MYSQL_PORT}
+      user: ${MYSQL_USER}
+      password: ${MYSQL_PASSWORD}
+      database: ${MYSQL_DATABASE}
   health_check:
     port: ${WEBSERVER_PORT}
     interval: 3000
